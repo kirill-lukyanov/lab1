@@ -1,32 +1,40 @@
 ﻿using System;
 
-namespace lab1
+namespace lab6
 {
     class Program
     {
+        class Cylinder
+        {
+            private float radius, height;
+
+            public Cylinder(float radius, float height)
+            {
+                this.radius = radius;
+                this.height = height;
+            }
+
+            public void PrintCyl()
+            {
+                string str = "";
+                str += $"Радиус: {radius}\n";
+                str += $"Высота: {height}\n";
+                str += $"Объём: {Math.PI * radius * radius * height}\n";
+                str += $"Площадь поверхности: {2 * Math.PI * radius * (radius + height)}\n";
+                Console.WriteLine(str);
+            }
+        }
         static void Main(string[] args)
         {
-            Console.WriteLine(
-                "Лабораторная работа №1 Разработка консольного приложения\n"+
-                "Лукьянов Кирилл Александрович\n"+
-                "ИНС-б-о-191\n" +
-                "26.01.2002\n" +
-                "г. Михайловск\n" +
-                "Ручка\n" +
-                "Дизайн, музыка");
+            float radius, height;
+            Console.Write("Радиус цилиндра: ");
+            radius = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Высота цилиндра: ");
+            height = Convert.ToSingle(Console.ReadLine());
 
-            Console.WriteLine("\nЗадание №2\n");
+            Cylinder cylinder = new Cylinder(radius, height);
 
-            float R_x = 0, a = 1, b = 2, t = 3, x = 4, f = 5, i_2 = 6;
-            R_x = a * b + b / t - x + f * i_2;
-
-            Console.WriteLine($"R_x = {R_x}");
-            Console.WriteLine($"a = {a}");
-            Console.WriteLine($"b = {b}");
-            Console.WriteLine($"t = {t}");
-            Console.WriteLine($"x = {x}");
-            Console.WriteLine($"f = {f}");
-            Console.WriteLine($"i_2 = {i_2}");
+            cylinder.PrintCyl();
 
             Console.ReadKey();
         }
