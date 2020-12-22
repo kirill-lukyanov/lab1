@@ -2,7 +2,7 @@
 
 namespace lab6
 {
-    class Program
+    class Labor6
     {
         class Cylinder
         {
