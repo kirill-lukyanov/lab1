@@ -17,10 +17,17 @@ namespace lab6
             public void PrintCyl()
             {
                 string str = "";
+                #if !DEBUG
                 str += $"Радиус: {radius}\n";
                 str += $"Высота: {height}\n";
                 str += $"Объём: {Math.PI * radius * radius * height}\n";
                 str += $"Площадь поверхности: {2 * Math.PI * radius * (radius + height)}\n";
+                #else
+                str += $"{radius}\n";
+                str += $"{height}\n";
+                str += $"{Math.PI * radius * radius * height}\n";
+                str += $"{2 * Math.PI * radius * (radius + height)}\n";
+                #endif
                 Console.WriteLine(str);
             }
         }
